@@ -1,3 +1,13 @@
 #!/bin/sh -l
 
-sh -c "echo Hello world my name is $INPUT_MY_NAME"
+apt-get update -qq
+apt-get install -qq git
+# Setup SSH deploy keys
+'which ssh-agent || ( apt-get install -qq openssh-client )'
+eval $(ssh-agent -s)
+ssh-add <(echo "$SSH_PRIVATE_KEY")
+mkdir -p ~/.ssh
+echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+ssh $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_TARGET && touch testing.txt"
+sh -c "Finished deploy"
