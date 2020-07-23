@@ -10,5 +10,5 @@ echo "$SSH_PRIVATE_KEY" | ssh-add -
 mkdir -p ~/.ssh
 echo -e "Host *\n\tStrictHostKeyChecking no\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 
-ssh -T $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_TARGET && touch testing.txt && exit"
+ssh -T ubuntu@ec2-13-239-59-103.ap-southeast-2.compute.amazonaws.com "cd $REMOTE_TARGET && touch testing.txt && exit"
 echo "Finished deploy"
