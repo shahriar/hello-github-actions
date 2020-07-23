@@ -3,10 +3,22 @@ description: "Greet someone"
 author: "octocat@github.com"
 
 inputs:
-  MY_NAME:
-    description: "Who to greet"
+  REMOTE_HOST:
+    description: "Target host to connect"
     required: true
-    default: "World"
+    default: ""
+  REMOTE_USER:
+    description: "Target host user"
+    required: true
+    default: ""
+  REMOTE_TARGET:
+    description: "Target host directory"
+    required: true
+    default: ""
+  SSH_PRIVATE_KEY:
+    description: "Private key to connect"
+    required: true
+    default: ""
 
 runs:
   using: "docker"
