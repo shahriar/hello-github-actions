@@ -6,8 +6,7 @@ apt-get install -qq git
 # Setup SSH deploy keys
 apt-get install -qq openssh-client
 eval $(ssh-agent -s)
-echo $SSH_PRIVATE_KEY
-ssh-add < (echo $SSH_PRIVATE_KEY)
+ssh-add - <<< "${SSH_PRIVATE_KEY}"
 mkdir -p ~/.ssh
 echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 
