@@ -10,5 +10,5 @@ echo "$SSH_PRIVATE_KEY" | ssh-add -
 mkdir -p ~/.ssh
 echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 
-ssh -T $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_TARGET && touch testing.txt && exit"
+ssh -T -$REMOTE_HOST $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_TARGET && touch testing.txt && exit"
 echo "Finished deploy"
