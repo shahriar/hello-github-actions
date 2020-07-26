@@ -4,7 +4,7 @@
 # apt-get install -qq git
 
 # Setup SSH deploy keys
-# apt-get install -qq openssh-client
+apt-get install -qq openssh-client
 # eval $(ssh-agent -s)
 # echo $SSH_PRIVATE_KEY | ssh-add -
 # mkdir -p ~/.ssh
@@ -13,6 +13,6 @@ chmod 400 ./action-a/staging-server.pem
 
 
 
-ssh -i ./action-a/staging-server.pem ubuntu@13.238.159.198 "cd /home/ubuntu/tura && touch testing.txt && exit"
+ssh -i "/github/workspace/action-a/staging-server.pem" ubuntu@13.238.159.198 "cd /home/ubuntu/tura && touch testing.txt && exit"
 echo "Finished deploy"
 echo $PWD
