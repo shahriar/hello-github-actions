@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-# apt-get update -qq
+apt-get update -qq
 # apt-get install -qq git
 
 # Setup SSH deploy keys
