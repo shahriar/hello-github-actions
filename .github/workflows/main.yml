@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Decrypt Pem
-        run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/staging-server.pem staging-server.pem.gpg
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/staging-server.pem ./staging-server.pem.gpg
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
