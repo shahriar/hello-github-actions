@@ -13,6 +13,6 @@ chmod 400 ./action-a/staging-server.pem
 echo "$(ls /github/workspace/action-a)"
 
 
-ssh -i "/github/workspace/action-a/staging-server.pem" ubuntu@13.238.159.198 "cd /home/ubuntu/tura && touch testing.txt && exit"
+ssh -y -i "/github/workspace/action-a/staging-server.pem" ubuntu@13.238.159.198 "cd /home/ubuntu/tura && touch testing.txt && exit"
 echo "Finished deploy"
 echo $PWD
